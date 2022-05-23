@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 # @Author : sunkuan
-# @Mail : sunkuan@baidu.com
 # @Project : 定时执行某脚本
 # @FileName: timer.py
 

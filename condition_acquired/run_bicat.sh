@@ -164,7 +164,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH":${LIB_DIR}/native/Linux-amd64-64/
 export JAVA_HOME=$HADOOP_CLIENT_DIR/java6
 export LANG=en_US
 
-INPUT_PROJECT="default.lbsmap_ods_mapnavi_vectormap_text_hi#filter={event_day='${DATA}'}#inputcols=log_id,req_basic,req_body,response,cuid,maneuver_types,event_day,event_hour"
+INPUT_PROJECT="table_name#filter={event_day='${DATA}'}#inputcols=log_id,req_basic,req_body,response,cuid,maneuver_types,event_day,event_hour"
 OUTPUT_DIR="/user/xingtian-map-navi/sunkuan/vector_map/filter_data/$DATA/$TASK_NAME"
 
 ${HADOOP_BIN_PATH}/hadoop fs -test -e "${OUTPUT_DIR}"
@@ -185,7 +185,7 @@ $HADOOP_BIN_PATH/hadoop streaming -libjars ${LIB_DIR}/upi-mr.jar \
 	-output "${OUTPUT_DIR}" \
 	-jobconf mapred.job.name="vector_map_sunkuan_${TASK_NAME}" \
     -jobconf mapred.job.queue.name=map-test_normal \
-    -inputformat  com.baidu.udw.mapred.MultiTableInputFormat \
+    -inputformat  MultiTableInputFormat \
 	-outputformat org.apache.hadoop.mapred.TextOutputFormat \
     -mapper "./mapper.sh" \
     -file ./script/mapper.py \

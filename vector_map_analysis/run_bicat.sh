@@ -46,7 +46,7 @@ $HADOOP_BIN_PATH/hadoop streaming -libjars ${LIB_DIR}/upi-mr.jar \
 	-output "$OUTPUT_DIR" \
 	-jobconf mapred.job.name="vector_map_sunkuan" \
     -jobconf mapred.job.queue.name=map-test_normal \
-    -inputformat  com.baidu.udw.mapred.MultiTableInputFormat \
+    -inputformat  MultiTableInputFormat \
 	-outputformat org.apache.hadoop.mapred.TextOutputFormat \
     -mapper "./mapper.sh" \
     -file ./analysis_script/mapper.py \

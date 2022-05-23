@@ -31,7 +31,7 @@ dict_error = {'': '处理成功', '1': '数据非法', '2': '驶入驶出link匹
 def send_mail(mail_from, mail_to, msg):
     """发送邮件通知"""
     try:
-        mail_host = "mail2-in.baidu.com"  # 设置服务器
+        mail_host = "email_server"  # 设置服务器
         s = smtplib.SMTP()
         logger.info("connecting to mail_host")
         s.connect(mail_host)
@@ -122,8 +122,8 @@ if __name__ == "__main__":
 
     html_msg = generate_html_msg_from_error_code_info(json_content, no_show_content, sub_type_info)
     
-    from_mail = "sunkuan@baidu.com"
-    to_mail = "sunkuan@baidu.com,bairui03@baidu.com,hongqize@baidu.com"
+    from_mail = "xxxxxxx@xxxxx.com"
+    to_mail = "xxxxxxx@xxxxx.com.com, xxxxxxx@xxxxx.com, xxxxxxx@xxxxx.com"
     msg = email.mime.multipart.MIMEMultipart()
     msg.attach(email.mime.text.MIMEText(html_msg, _subtype='html', _charset='utf-8'))
 
